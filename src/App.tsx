@@ -11,14 +11,18 @@ import Navbar from './components/basic/navbar'
 
 function App() {
   // const [count, setCount] = useState(0)
+    const handleTatuajeSubmit = (data: Tatuajes) => {
+    console.log("Tatuaje enviado:", data);
+    // Aquí podrías llamar a tu API para guardar los datos
+  };
+
+
 
   return (
 
     <>
       <Navbar></Navbar>
-      <TatuajeForm onSubmit={function (data: Tatuajes): void {
-        throw new Error('Function not implemented.')
-      } }></TatuajeForm>
+      <TatuajeForm onSubmit={handleTatuajeSubmit}></TatuajeForm>
       <CardsItem></CardsItem>
       <Footer></Footer>
     </>
