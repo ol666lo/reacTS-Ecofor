@@ -1,39 +1,39 @@
 import { useEffect, useState } from "react";
-import { type Item } from "./interface";
+import { type tatuajes } from "./interface";
 // import { url } from "inspector";
 
 export default function CardsItem() {
-    const [items, setItems] = useState<Item[]>([]);
+    const [items, setItems] = useState<tatuajes[]>([]);
     //   const [itemsImg, setItemsimh] = useState<Item[]>([]);
 
     const [loading, setLoading] = useState<boolean>(true);
-    let url: string;
+    // let url: string;
     // let url_img: string;
     useEffect(() => {
         const fetchItems = async () => {
             try {
-                const res = await fetch("http://127.0.0.1:8000/api/v1/cats/");
-                const data: Item[] = await res.json();
+                const res = await fetch("http://127.0.0.1:8000/api/v1/horas-tatuajes/");
+                const data: tatuajes[] = await res.json();
                 setItems(data);
                 // console.log(data)
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                const imgData = await
-                    Promise.all(items.map(async (item) => {
-                        const ref = item.reference_image_id
-                        // console.log(ref)
-                        url = 'https://api.thecatapi.com/v1/images/${item.reference_image_id$(item.reference_image_id)'
-                        const url_img = fetch(url, {
-                            method: "GET",
-                            headers: {
-                                "x-api-key": "ef72570ff371408f9668e414353b7b2e",
-                                "Content-Type": "application/json"
-                            },
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            //     const imgData = await
+            //         Promise.all(items.map(async (item) => {
+            //             const ref = item.reference_image_id
+            //             // console.log(ref)
+            //             url = 'https://api.thecatapi.com/v1/images/${item.reference_image_id$(item.reference_image_id)'
+            //             const url_img = fetch(url, {
+            //                 method: "GET",
+            //                 headers: {
+            //                     "x-api-key": "ef72570ff371408f9668e414353b7b2e",
+            //                     "Content-Type": "application/json"
+            //                 },
 
-                        })
+            //             })
                        
-                    }
-                )
-            )
+            //         }
+            //     )
+            // )
             } catch (error) {
                 console.error("Error al cargar la API:", error);
             } finally {
@@ -58,12 +58,12 @@ export default function CardsItem() {
 
                 <div
                     key={item.id}
-                    className="bg-amber-300 rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow"
+                    className="bg-amber-100 rounded-lg shadow-md p-5 hover:shadow-lg transition-shadow"
                 >
                     <img src="{}" alt="" />
-                    <h2 className="text-xl font-bold mb-2">{item.name}</h2>
-                    <p className="text-gray-700">{item.description}</p>
-                    <p className="text-gray-700 hidden" >'https://cdn2.thecatapi.com/images/${item.reference_image_id}.jpg'</p>
+                    <h2 className="text-xl font-bold mb-2">{item.precio}</h2>
+                    <p className="text-gray-700">{item.descripcion}</p>
+                    {/* <p className="text-gray-700 hidden" >'https://cdn2.thecatapi.com/images/${item.reference_image_id}.jpg'</p> */}
 
                 </div>
             ))}
